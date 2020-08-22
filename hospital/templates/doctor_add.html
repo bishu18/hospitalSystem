@@ -1,0 +1,41 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+    <h2 class="text-center">Register Doctor</h2>
+    <HR>
+            <form method="POST" action="">
+                {% csrf_token %}
+                    <label>Enter Username</label>
+                    <input type="text" name="uname" class="form-control" placeholder="Enter username name"><br>
+                    <label>Enter Password</label>
+                    <input type="password" name="pwd" class="form-control" placeholder="Enter password"><br>
+                    <label>Enter email id</label>
+                    <input type="email" name="mail" class="form-control" placeholder="Enter email id"><br>
+                    <label>Enter full name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter doctor name"><br>
+                    <label>Mobile No.</label>
+                    <input type="text" name="mobile" class="form-control" placeholder="Enter contact details"><br>
+                    <label>Specialization</label>
+                    <input type="text" name="special" class="form-control" placeholder="Enter Specialization"><br>
+                    <input type="submit" value="Submit" class="form-control btn btn-primary">
+            </form>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Record Saved Successfuly');
+    window.location=('{% url 'doctor_view' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

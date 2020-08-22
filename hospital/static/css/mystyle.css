@@ -1,0 +1,13 @@
+.nav-link{
+    color: black;
+}
+
+.text-footer{
+    text-align: center;
+    padding: 30px 0;
+    display: flex;
+    background: black;
+    width: 100%;
+    justify-content: center;
+    color: white;
+}

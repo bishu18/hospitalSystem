@@ -1,0 +1,43 @@
+{% extends 'navigation.html'%}
+{% block body %}
+{% load static %}
+<style>
+.image{
+    width:100%;
+    height: 400px;
+    background:url({% static 'images/backgound.jpg' %});
+}
+
+.text-footer{
+    text-align: center;
+    padding: 30px 0;
+    display: flex;
+    background: black;
+    width: 100%;
+    justify-content: center;
+    color: white;
+}
+</style>
+
+<div class="image">
+
+</div>
+
+<footer  class="font-small special-color-dark pt-5">
+    <div class="text-footer text-center" >
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter pl-5"></i></a>
+        <a href="#"><i class="fab fa-instagram pl-5"></i></a>
+    </div>
+    <div class="footer-copyright text-footer text-center py-3">
+        <p>© 2020 Copyright: HospitalManagementSystem</p>
+    </div>
+</footer>
+
+
+
+{% endblock %}
+
+
+
+

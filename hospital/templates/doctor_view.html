@@ -1,0 +1,34 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container" style="margin-top: 50px;">
+<h2 class="text-center">View Doctor</h2>
+<br><br>
+<table class="table table:hover">
+        <tr class="text-center">
+            <!-- <th>Doctor ID</th> -->
+            <th>Doctor Name</th>
+            <th>Email ID</th>
+            <th>Contact</th>
+            <th>Specialization</th>
+            <th>Action</th>
+        </tr>
+        {% for i in doc %}
+        <tr class="text-center">
+            <!-- <td>{{i.id}}</td> -->
+            <td>{{i.name}}</td>
+            <td>{{i.mail}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.special}}</td>
+            <td><a href="{% url 'doctor_delete' i.id %}" onclick="return confirm('Do you really want to delete?')" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+</table>
+<div class="container" style="margin-top: 100px; padding-left: 940px;">
+<a class="btn btn-primary" href="{% url 'doctor_add' %}" >Add Doctor</a>
+</div>
+</div>
+
+{% endblock %}

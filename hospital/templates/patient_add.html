@@ -1,0 +1,41 @@
+{% extends 'staff_nav.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+    <h2 class="text-center mt-5">Register Patient</h2>
+    <HR>
+            <form method="POST" action="">
+                {% csrf_token %}
+                    <label>Enter name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter patient name"><br>
+                    <label>Enter gender</label>
+                    <input type="text" name="gender" class="form-control" placeholder="Enter gender"><br>
+                    <label>Mobile No.</label>
+                    <input type="text" name="mobile" class="form-control" placeholder="Enter contact details"><br>
+                    <label>Age</label>
+                    <input type="number" name="age" class="form-control" placeholder="Enter age"><br>
+                    <label>Enter address</label>
+                    <input type="text" name="address" class="form-control" placeholder="Enter address"><br>
+                    <label>Enter registration date</label>
+                    <input type="date" name="registered" class="form-control" placeholder="Enter date"><br>
+                    <input type="submit" value="Register" class="form-control btn btn-primary">
+            </form><br><br>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Record Saved Successfuly');
+    window.location=('{% url 'patient_view' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

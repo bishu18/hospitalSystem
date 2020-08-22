@@ -1,0 +1,33 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+    <h2 class="text-center">Branch</h2>
+    <HR>
+            <form method="POST" action="">
+                {% csrf_token %}
+                    <label>Enter name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter branch name"><br>
+                    <label>Discount rate</label>
+                    <input type="text" name="rate" class="form-control" placeholder="Enter discount rate"><br>
+                    <input type="submit" value="Submit" class="form-control btn btn-primary">
+            </form>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Record Saved Successfuly');
+    window.location=('{% url 'branch_view' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

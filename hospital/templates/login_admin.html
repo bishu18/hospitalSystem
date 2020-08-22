@@ -1,0 +1,50 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+{% ifequal error "no" %}
+<script>
+    alert('Logged In Successfuly');
+    window.location=('{% url 'branch_view' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid Login Credentials, Try Again');
+</script>
+{% endifequal %}
+
+
+
+<div class="container mt-5">
+        <h2 class="text-center">Login Page</h2>
+        <HR>
+                <form method="POST" class="px-1 py-3">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Enter email address or username</label>
+                        <input type="text" name="uname" class="form-control" placeholder="Enter email-id or username">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Password</label>
+                        <input type="password" name="pwd" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                        <label class="form-check-label" for="dropdownCheck">
+                            Remember me
+                        </label>
+                    </div><br>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <a style="text-decoration:none;" href="#">Forgot password?</a><br><br>
+                </form>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
